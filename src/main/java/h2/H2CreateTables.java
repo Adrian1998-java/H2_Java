@@ -6,7 +6,11 @@ import java.sql.Statement;
 
 public class H2CreateTables {
 
-    private static final String createTableSQL = "create table Tienda (codTienda char(9) primary key, nomProducto varchar(50), localizacion varchar(100))"; 
+    private static final String createTableSQL = "create table Clientes (idCliente char(5) primary key, nomCliente varchar(50), codTienda char(9), foreign key (codTienda) references Tienda(codTienda))";
+    		
+    
+//    		"create table Tienda (codTienda char(9) primary key, nomProducto varchar(50), localizacion varchar(100))"/
+    
 //    		"create table users (\r\n" + "  id  int(3) primary key,\r\n" +
 //        "  name varchar(20),\r\n" + "  email varchar(20),\r\n" + "  country varchar(20),\r\n" +
 //        "  password varchar(20)\r\n" + "  );";

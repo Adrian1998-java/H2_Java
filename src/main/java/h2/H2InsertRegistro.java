@@ -8,8 +8,7 @@ public class H2InsertRegistro {
 
 	private static final String INSERT_USERS_SQL = "INSERT INTO TIENDA (CODTIENDA, NOMPRODUCTO, LOCALIZACION) VALUES (?, ?, ?);";
 //			"INSERT INTO users" +
-//	        "  (id, name, email, country, password) VALUES " +
-//	        " (?, ?, ?, ?, ?);";
+//	        "  (id, name, email, country, password) VALUES (?, ?, ?, ?, ?);";
 
 	    public static void main(String[] argv) throws SQLException {
 	        H2InsertRegistro createTableExample = new H2InsertRegistro();
