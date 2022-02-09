@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class H2DeleteRegistro {
 
-	private static final String deleteTableSQL = "delete from users where id = 1";
+	private static final String deleteTableSQL = "delete from Tienda where codTienda = '12345678W'";
 
     public static void main(String[] argv) throws SQLException {
     	H2DeleteRegistro deleteExample = new H2DeleteRegistro();

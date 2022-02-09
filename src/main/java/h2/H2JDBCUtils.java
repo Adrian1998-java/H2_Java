@@ -19,7 +19,6 @@ public class H2JDBCUtils {
         }
         return connection;
     }
-
     public static void printSQLException(SQLException ex) {
         for (Throwable e: ex) {
             if (e instanceof SQLException) {
