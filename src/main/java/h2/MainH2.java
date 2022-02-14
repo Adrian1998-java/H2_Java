@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.Scanner;
+
+import com.mysql.cj.protocol.Resultset;
 
 public class MainH2 {
 
@@ -23,6 +26,7 @@ public class MainH2 {
 			System.out.println("(1) Insertar datos");
 			System.out.println("(2) Eliminar datos");
 			System.out.println("(3) Actualizar datos");
+			System.out.println("(4) Ver datos de tablas");
 			System.out.println("(0) Salir de la aplicación");
 
 			valor = Integer.parseInt(in.nextLine());
@@ -35,6 +39,10 @@ public class MainH2 {
 				break;
 			case 3:
 				ModificarDatos();
+				break;
+
+			case 4:
+				VerDatos();
 				break;
 			case 0:
 				System.out.println("Saliendo de la aplicación");
@@ -54,6 +62,38 @@ public class MainH2 {
 			e.printStackTrace();
 		}
 
+	}
+
+	private static void VerDatos() throws SQLException {
+		PreparedStatement ps1 = conn.prepareStatement("select * from Tienda");
+		ResultSet rs = ps1.executeQuery();
+
+		System.out.println("------->TABLA TIENDA<-------");
+		System.out.println("| ID CLIENTE || NOMBRE || CODTIENDA |");
+		while (((ResultSet) rs).next()) {
+			String codTienda = rs.getString("CODTIENDA");
+			String nomProducto = rs.getString("NOMPRODUCTO");
+			String localizacion = rs.getString("LOCALIZACION");
+
+			System.out.println("| " + codTienda + " || " + nomProducto + " || " + localizacion + " |");
+
+		}
+
+		PreparedStatement ps2 = conn.prepareStatement("select * from CLientes");
+		rs = ps2.executeQuery();
+
+		System.out.println("\n------->TABLA CLIENTES<-------");
+		System.out.println("| COD TIENDA || NOMPRODUCTO || LOCALIZACION |");
+		while (((ResultSet) rs).next()) {
+			String idCLiente = rs.getString("IDCLIENTE");
+			String nomcliente = rs.getString("NOMCLIENTE");
+			String codTienda = rs.getString("CODTIENDA");
+
+			System.out.println("| " + idCLiente + " || " + nomcliente + " || " + codTienda + " |");
+
+		}
+		System.out.println();
+		System.out.println();
 	}
 
 	private static void InsertarDatos() throws SQLException {
