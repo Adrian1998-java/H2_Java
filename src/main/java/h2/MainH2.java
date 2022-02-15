@@ -69,7 +69,7 @@ public class MainH2 {
 		ResultSet rs = ps1.executeQuery();
 
 		System.out.println("------->TABLA TIENDA<-------");
-		System.out.println("| ID CLIENTE || NOMBRE || CODTIENDA |");
+		System.out.println("| COD TIENDA || NOMPRODUCTO || LOCALIZACION |");
 		while (((ResultSet) rs).next()) {
 			String codTienda = rs.getString("CODTIENDA");
 			String nomProducto = rs.getString("NOMPRODUCTO");
@@ -83,7 +83,7 @@ public class MainH2 {
 		rs = ps2.executeQuery();
 
 		System.out.println("\n------->TABLA CLIENTES<-------");
-		System.out.println("| COD TIENDA || NOMPRODUCTO || LOCALIZACION |");
+		System.out.println("| ID CLIENTE || NOMBRE || CODTIENDA |");
 		while (((ResultSet) rs).next()) {
 			String idCLiente = rs.getString("IDCLIENTE");
 			String nomcliente = rs.getString("NOMCLIENTE");
